@@ -31,8 +31,8 @@ public class FTPUploadHelper {
             connectAndLogin();
             ftpClient.enterLocalPassiveMode();
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
-            ftpClient.setConnectTimeout(10000); // 10 seconds
-            ftpClient.setDataTimeout(10000); // 10 seconds
+            ftpClient.setConnectTimeout(10000);
+            ftpClient.setDataTimeout(10000);
         }
         return ftpClient;
     }

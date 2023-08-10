@@ -71,7 +71,7 @@ public class RemoteDirectoryWatcherListener {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(channel.getInputStream()))) {
             channel.connect();
 
-            // Read the output from the channel's input stream
+            // 读取文件刘
             String line;
             while ((line = reader.readLine()) != null) {
                 LOGGER.info("inotifywait Response line : [{}]", line);
@@ -82,7 +82,7 @@ public class RemoteDirectoryWatcherListener {
                     if (event != null) {
                         String remoteFilePath = remoteDirectoryPath + "/" + parts[2];
 
-                        // Filter events for the monitored file extensions
+                        // 处理指定类型文件
                         String fileExtension = getFileExtension(remoteFilePath);
                         if (FILE_EXTENSIONS_TO_MONITOR.contains(fileExtension)) {
                             handleFileEvent(session, remoteFilePath, event);

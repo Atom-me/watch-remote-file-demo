@@ -25,7 +25,7 @@ public class CreateEventStrategy implements FileEventStrategy {
     public void handleEvent(Session session, String remoteFilePath) {
         try {
             Map<String, String> fileAttributes = getFileAttributes(session, remoteFilePath);
-            // Process the file attributes as needed
+            // 文件元数据信息
             for (Map.Entry<String, String> entry : fileAttributes.entrySet()) {
                 LOGGER.info("[{}] 属性信息 [{}]:[{}]", remoteFilePath, entry.getKey(), entry.getValue());
             }
@@ -52,10 +52,10 @@ public class CreateEventStrategy implements FileEventStrategy {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(channel.getInputStream()))) {
             channel.connect();
 
-            // Read the output from the channel's input stream
-            String line = reader.readLine(); // Reading the first line of the 'ls' command output
+            // 读取文件刘
+            String line = reader.readLine();
             if (line != null) {
-                // Assuming the output format is similar to 'ls -l --time-style=long-iso'
+                // 正则表达式"\s+"表示一个或多个连续的空格字符（包括空格、制表符、换行符）
                 String[] parts = line.split("\\s+");
                 if (parts.length >= 8) {
                     fileAttributes.put("Permissions", parts[0]);
@@ -66,7 +66,6 @@ public class CreateEventStrategy implements FileEventStrategy {
                 }
             }
 
-            // Close the reader and disconnect the channel
             channel.disconnect();
         }
 
