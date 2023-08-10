@@ -87,6 +87,7 @@ public class ModifyEventStrategy implements FileEventStrategy {
                     LOGGER.info("start upload updated content to ftp.");
                     // new fileName
                     // todo  send to kafka
+
                     ftpUploadHelper.uploadFile(newFtpFile, currentLines.get(i));
                 }
 
