@@ -43,7 +43,7 @@ public class RemoteDirectoryWatcherListener {
                                           MoveEventStrategy moveEventStrategy) {
         EVENT_STRATEGY_MAP.put(InotifyEvent.MODIFY, modifyEventStrategy);
         EVENT_STRATEGY_MAP.put(InotifyEvent.CREATE, createEventStrategy);
-        EVENT_STRATEGY_MAP.put(InotifyEvent.MOVE, moveEventStrategy);
+//        EVENT_STRATEGY_MAP.put(InotifyEvent.MOVE, moveEventStrategy);
     }
 
 
